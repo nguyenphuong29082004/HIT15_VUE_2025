@@ -1,3 +1,4 @@
+    padding: 10px;
 <script setup>
 import { ref } from 'vue'
 
