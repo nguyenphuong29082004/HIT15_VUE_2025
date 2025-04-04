@@ -11,7 +11,7 @@
       <h1 class="temperature">26°C</h1>
     </div>
     <div class="wea-info">
-      <p class="datetime">2025-03-11</p>
+      <p class="datetime">2025-03-11</p>n
       <img class="weather-condition" src="../assets/176.webp" />
       <h1 class="temperature">26°C</h1>
     </div>
