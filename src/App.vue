@@ -1,25 +1,21 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-import Search from "./components/Search.vue";
-import Content from "./components/Content.vue";
-import WeatherInfo from "./components/WeatherInfo.vue";
+import Bai1 from './components/Bai1.vue';
+import Bai2 from './components/Bai2.vue';
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <div class="container-w">
-    <Search />
-    <Content />
-    <WeatherInfo />
-  </div>
-
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
+  
+  <Bai1/>
+  <Bai2/>
+  <!-- <HelloWorld /> -->
 </template>
 
 <style scoped>
-.container-w {
+/* .container-w {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 55px;
-}
+} */
 </style>
