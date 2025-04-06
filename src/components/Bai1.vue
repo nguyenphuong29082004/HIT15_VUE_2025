@@ -51,7 +51,8 @@
       
 </script>
 <template>
-    <h2>Bài 1:</h2>
+  <div class="bai1">
+     <h2>Bài 1:</h2>
     <input type="text" name="" id="" placeholder="Nhập số lượng số cần hiển thị" v-model.number="length" >
     <button @click="display">Hiển thị</button>
     <button @click="randomPrime">Thêm số nguyên tố</button>
@@ -59,9 +60,17 @@
     <button @click="Reset">Quay lại</button>
     <p v-if="message">{{ message }}</p>
     <p v-if="randomArray">{{ randomArray.join() }}</p>
+  </div>
+   
     
 </template>
 <style scoped>
+  .bai1{
+    padding: 10px;
+  }
+  h2{
+    margin: 12px 0px;
+  }
     button{
         padding: 8px 12px;
         border-radius: 4px;

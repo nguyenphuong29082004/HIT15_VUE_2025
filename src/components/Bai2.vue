@@ -25,15 +25,24 @@ function getRandomElement() {
 
 </script>
 <template>
-    <h2>Bài 2:</h2>
-    <button @click="getRandomElement">Hãy click vào đây</button>
-    <div v-if="randomImage">
-      <img :src="randomImage" alt="Ảnh ngẫu nhiên">
+    <div class="bai2">
+        <h2>Bài 2:</h2>
+        <button @click="getRandomElement">Hãy click vào đây</button>
+        <div v-if="randomImage">
+            <img :src="randomImage" alt="Ảnh ngẫu nhiên">
+        </div>
     </div>
+    
 
 </template>
 
 <style scoped>
+    .bai2{
+        padding: 10px;
+    }
+    h2{
+        margin: 12px 0px;
+    }
     button{
         padding: 8px 12px;
         border-radius: 4px;
@@ -42,8 +51,8 @@ function getRandomElement() {
         border-color: #0fd70f;
     }
     div{
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
     }
     img{
         width: 100%;
