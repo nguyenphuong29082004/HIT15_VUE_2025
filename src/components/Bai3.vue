@@ -22,7 +22,7 @@ function Login(){
     showLogin.value = true;
 }
 function handleLogin() {
-  if (user.value === "admin" && pword.value === "12345") {
+  if (user.value.trim() === "admin" && pword.value === "12345") {
     showLogin.value = false;
     errorMessage.value = ""; 
     alert("Đăng nhập thành công!");
@@ -52,7 +52,7 @@ function handleLogin() {
   
   <!-- Hien thi giao dien neu la show login la true -->
    <div v-if="showLogin" class="main-wrapper">
-    <h2>Bài 3: (admin/12345)</h2>
+    <p>Bài 3: (admin/12345)</p>
     <div  class="showLogin">
         <form class="wrapp_login"  @submit.prevent="handleLogin">
             <h2>LOGIN</h2>
@@ -101,13 +101,16 @@ function handleLogin() {
 }
 .main-wrapper{
     background: linear-gradient(180deg, rgba(188,87,136,1) 0%, rgba(33,74,178,1) 100%);
-
+    /* margin-top: -67px; */
 }
 .showLogin{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+p{
+    font-size: 20px;
 }
 h2{
     text-align: center;
@@ -134,5 +137,6 @@ h2{
     color: white;
     font-size: 16px;
     border-radius: 4px;
+    border: none;
 }
 </style>
