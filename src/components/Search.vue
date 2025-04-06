@@ -133,8 +133,8 @@ import vnImage from '../assets/vn.png';
   box-shadow: 0 0 15px 10px rgba(176, 175, 175, 0.2);
   border-radius: 20px;
   width: max-content;
-  padding: 20px 4px;
-   transition: all 0.3s ease;
+  padding: 12px 10px;
+   transition: all 0.5s ease;
   .temperature,
   .datetime {
     font-size: 16px;
@@ -143,6 +143,7 @@ import vnImage from '../assets/vn.png';
   &:hover{
     transform: translateY(-20px);
     background-color: #756b9c;
+    color: white;
   }
   img {
     width: 32px;
