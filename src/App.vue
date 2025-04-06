@@ -1,15 +1,15 @@
 <script setup>
 // import HelloWorld from './components/HelloWorld.vue'
 import Search from "./components/Search.vue";
-import Content from "./components/Content.vue";
-import WeatherInfo from "./components/WeatherInfo.vue";
+// import Content from "./components/Content.vue";
+// import WeatherInfo from "./components/WeatherInfo.vue";
 </script>
 
 <template>
   <div class="container-w">
     <Search />
-    <Content />
-    <WeatherInfo />
+    <!-- <Content />
+    <WeatherInfo /> -->
   </div>
 
   <!-- <HelloWorld msg="Vite + Vue" /> -->

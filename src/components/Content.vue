@@ -1,20 +1,5 @@
 <template>
-  <div class="container">
-    <div class="flat">
-      <img src="../assets/vn.png" />
-    </div>
-    <div class="weather-info">
-      <p class="country">Viet Nam</p>
-      <h class="temp">
-        22.1
-        <p class="degree">o</p>
-      </h>
-      <div class="condate" >
-        <p class="condition">Light rain</p>
-        <p class="datetime">2025-03-11 07:41</p>
-      </div>
-    </div>
-  </div>
+  
 </template>
 <style scoped>
 .container {
