@@ -1,52 +1,96 @@
 <script setup>
-import { reactive } from 'vue';
-import vnImage from '../assets/vn.png';
- const wether = reactive(
- { name: 'Viet Nam',
-   temp: "22.1" ,
-   sky: "Light rain",
-   date: "2025-03-11 07:41",
-   flat_img: vnImage,
-})
+import { reactive, ref } from 'vue';
+// import vnImage from '../assets/vn.png';
+const data = ref({
+  flag: "https://flagcdn.com/w320/vn.png",
+  name: "Ha Noi",
+  degree: 19,
+  condition: "Mist",
+  icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+  time: "2025-02-14 15:17",
+  forecast: [
+    {
+      degree: 20,
+      condition: "Mist",
+      icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+      time: "2025-02-10",
+    },
+    {
+      degree: 25,
+      condition: "Cloud",
+      icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+      time: "2025-02-11",
+    },
+    {
+      degree: 17,
+      condition: "Sunny",
+      icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+      time: "2025-02-12",
+    },
+    {
+      degree: 30,
+      condition: "Mist",
+      icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+      time: "2025-02-13",
+    },
+    {
+      degree: 20,
+      condition: "Mist",
+      icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+      time: "2025-02-14",
+    },
+    {
+      degree: 20,
+      condition: "Mist",
+      icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+      time: "2025-02-15",
+    },
+    {
+      degree: 20,
+      condition: "Mist",
+      icon: "//cdn.weatherapi.com/weather/64x64/day/143.png",
+      time: "2025-02-16",
+    },
+  ],
+});
 </script>
 <template>
   <form action="">
     <input type="text" style="width: 750px;" class="search" placeholder="Viet nam"/>
     <input type="button" value="Search" class="btnsearch" />
   </form>
-
   <div class="container">
     <div class="flat">
-       <img :src="wether.flat_img" alt="Hình ảnh quốc kỳ" />
+       <img :src="data.flag" alt="Hình ảnh quốc kỳ" />
     </div>
     <div class="weather-info">
-      <p class="country">{{ wether.name }}</p>
+      <p class="country">{{ data.name }}</p>
       <h class="temp">
-        {{ wether.temp }}
+        {{ data.degree }}
         <p class="degree">o</p>
       </h>
       <div class="condate" >
-        <p class="condition">{{ wether.sky }}</p>
-        <p class="datetime">{{ wether.date }}</p>
+        <p class="condition">{{ data.condition }}</p>
+        <p class="datetime">{{ data.time }}</p>
       </div>
     </div>
   </div>
 
   <div class="container-info">
     <div class="wea-info">
-      <p class="datetime">2025-03-11</p>
-      <img class="weather-condition" src="../assets/176.webp" />
-      <h1 class="temperature">26°C</h1>
+      <p class="datetime">{{ data.forecast[0].time }}</p>
+      <img class="weather-condition" :src="data.forecast[0].icon" />
+      <h1 class="temperature">{{ data.forecast[0].degree }}°C</h1>
     </div>
     <div class="wea-info">
-      <p class="datetime">2025-03-11</p>
-      <img class="weather-condition" src="../assets/176.webp" />
-      <h1 class="temperature">26°C</h1>
+      <p class="datetime">{{ data.forecast[1].time }}</p>
+      <img class="weather-condition" :src="data.forecast[1].icon" />
+      <h1 class="temperature">{{ data.forecast[1].degree }}°C</h1>
     </div>
     <div class="wea-info">
-      <p class="datetime">2025-03-11</p>
-      <img class="weather-condition" src="../assets/176.webp" />
-      <h1 class="temperature">26°C</h1>
+      <p class="datetime">{{ data.forecast[2].time }}</p>
+      <img class="weather-condition" :src="data.forecast[2].icon" />
+      <h1 class="temperature">{{ data.forecast[2].degree }}°C</h1>
     </div>
   </div>
 </template>
