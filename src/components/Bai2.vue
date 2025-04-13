@@ -10,7 +10,8 @@ const arrayImage = reactive([
     "https://inkythuatso.com/uploads/thumbnails/800/2022/05/dang-noi-gi-do-meme-17-09-22-19.jpg",
     "https://thuthuatnhanh.com/wp-content/uploads/2022/06/Anh-meme-meo.jpg",
     "https://blogchiasekienthuc.com/wp-content/uploads/2023/02/anh-meme-cho-meo-hai-huoc-24.jpg",
-    "https://khoinguonsangtao.vn/wp-content/uploads/2022/08/hinh-meme-meo-bua-de-thuong.jpg"
+    "https://khoinguonsangtao.vn/wp-content/uploads/2022/08/hinh-meme-meo-bua-de-thuong.jpg",
+    'vn.png'
 ]);
 
 // Biến phản ứng để lưu hình ảnh ngẫu nhiên
@@ -32,8 +33,12 @@ function getRandomElement() {
             <img :src="randomImage" alt="Ảnh ngẫu nhiên">
         </div>
     </div>
+    <!-- <img src="../assets/vn.png" alt=""> -->
     
+<div v-for="item, index in arrayImage" :key="index">
 
+    <img :src="item" alt="">
+</div>
 </template>
 
 <style scoped>

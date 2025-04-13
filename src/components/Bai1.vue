@@ -4,6 +4,9 @@
     const message = ref("");
     let randomArray = ref([])
 
+
+
+
     function display() {
       if(length.value <=  0 || isNaN(length.value)){
           message.value = "Hãy nhập vào số nguyên dương";
