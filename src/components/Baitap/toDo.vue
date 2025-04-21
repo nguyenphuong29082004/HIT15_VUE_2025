@@ -1,11 +1,15 @@
 <script setup>
 import { ref, computed, watch } from "vue";
+import Message from "./Message.vue";
+import Dashboard from "./Dashboard.vue";
 const selectedList = ref("all");
 const search_task = ref("");
 const show_add = ref(false);
 const detail_task = ref(false);
 const input_add = ref(""); // ô nhập nhiệm vụ mới
 const task_list = ref([]); // mảng chứa tất cả nhiệm vụvụ
+const task_list_length = computed(() => task_list.value.length);
+
 const notice = ref(false); // Hien thi thong bao
 const message = ref(""); // Noi dung hien thi
 const triggerNotice = (msg) => {
@@ -42,7 +46,7 @@ const delete_task = (index) => {
 // lọc task
 const filter = computed(() => {
   if (selectedList.value === "all") {
-    return task_list.value; // Hiển thị tất cả nhiệm vụ
+    return task_list.value;
   } else if (selectedList.value === "complete") {
     return task_list.value.filter((item) => item.status === "complete");
   } else {
@@ -90,11 +94,12 @@ watch(
 // thong bao
 </script>
 <template>
-  <div class="wrapper_notice">
+  <!-- <div class="wrapper_notice">
     <div :class="['notice_message', { active: notice }]">
       {{ message }}
     </div>
-  </div>
+  </div> -->
+  <Message :notice="notice" :message="message"/>
   <div class="container">
     <div class="container_left">
       <div class="search">
@@ -145,33 +150,10 @@ watch(
         </div>
       </div>
     </div>
-    <div class="container_right">
-      <div class="chart">
-        <div class="sum result">
-          <div class="data_sum">{{ task_list.length }}</div>
-          <div
-            class="column_sum column"
-            :style="{ height: task_list.length > 0 ? '100%' : '0px' }"
-          ></div>
-          <div>Tổng</div>
-        </div>
-        <div class="complete result">
-          <div class="data_complete">{{ task_count_complete }}</div>
-          <div
-            class="column_complete column"
-            :style="{ height: set_height_complete + '%' }"
-          ></div>
-          <div>Đã hoàn thành</div>
-        </div>
-        <div class="unfinished result">
-          <div class="data_unfinished">{{ task_count_unfinished }}</div>
-          <div
-            class="column_unfinished column"
-            :style="{ height: set_height_unfinished + '%' }"
-          ></div>
-          <div>Chưa hoàn thành</div>
-        </div>
-      </div>
+    <div class="container_right">  
+      <Dashboard :length="task_list_length" :set_height_complete="set_height_complete" :set_height_unfinished="set_height_unfinished"
+      :task_count_complete="task_count_complete" :task_count_unfinished="task_count_unfinished"/>
+
       <div class="add">
         <button @click="show_add = !show_add" class="add_click">
           <i class="fa-solid fa-plus" style="color: #ffffff"></i>
@@ -249,16 +231,7 @@ watch(
   }
 }
 
-.column_sum {
-  background-color: red;
-}
-.column_complete {
-  background-color: yellow;
-}
-.column_unfinished {
-  background-color: green;
-  /* height: 50px; */
-}
+
 .detail_item {
   text-transform: capitalize;
   margin-bottom: 32px;
@@ -360,7 +333,7 @@ watch(
   overflow-y: scroll;
   /* padding: 24px; */
 }
-.chart {
+/* .chart {
   padding: 24px;
   border: 2px solid #4d56ff;
   border-radius: 4px;
@@ -381,7 +354,7 @@ watch(
   gap: 30px;
   height: 100%;
   justify-content: flex-end;
-}
+} */
 .todo_item {
   display: flex;
   justify-content: space-between;
