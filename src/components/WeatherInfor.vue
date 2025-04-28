@@ -1,5 +1,29 @@
+<script setup>
+const props = defineProps({
+  name: String,
+  tem: String,
+  condition: String,
+  date: String,
+  flag: String,
+})
+</script>
 <template>
-  
+  <div class="container">
+    <div class="flat">
+      <img :src="flag" alt="Hình ảnh quốc kỳ" />
+    </div>
+    <div class="weather-info">
+      <p class="country">{{ name }}</p>
+      <h class="temp">
+        {{ tem}}
+        <p class="degree">o</p>
+      </h>
+      <div class="condate">
+        <p class="condition">{{condition}}</p>
+        <p class="datetime">{{ date}}</p>
+      </div>
+    </div>
+  </div>
 </template>
 <style scoped>
 .container {
@@ -12,17 +36,17 @@
   width: max-content;
 }
 .flat {
-  width: 320px;
-  height: 120px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 120px; */
 }
 .flat img {
-  width: 300px;
+  width: 100%;
   height: auto;
   transition: all 0.3s ease;
   border-radius: 8px;
-}
-.flat img:hover {
-  width: 310px;
 }
 .weather-info {
   display: flex;
@@ -49,7 +73,7 @@
     font-weight: 700;
     align-items: center;
     .degree {
-      margin-top: -2px;
+      margin-top: -28px;
       font-size: 24px;
     }
   }
