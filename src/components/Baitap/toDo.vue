@@ -8,6 +8,18 @@ const show_add = ref(false);
 const detail_task = ref(false);
 const input_add = ref(""); // ô nhập nhiệm vụ mới
 const task_list = ref([]); // mảng chứa tất cả nhiệm vụvụ
+
+const setItemLocalStorage = () => {
+  localStorage.setItem("task_list", JSON.stringify(task_list.value))
+}
+
+const getItemLocalStorage = () => {
+  const data = localStorage.getItem("task_list");
+  return data ? JSON.parse(data) : [];
+}
+
+
+
 const task_list_length = computed(() => task_list.value.length);
 
 const notice = ref(false); // Hien thi thong bao
