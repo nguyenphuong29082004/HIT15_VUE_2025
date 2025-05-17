@@ -49,11 +49,11 @@ const fetchWeather = async () => {
 
     // Gọi API lấy thông tin quốc gia
     const countryRes = await axios.get(
-      `https://restcountries.com/v3.1/name/${props.country}`
+      `http://restcountries.com/v3.1/name/${props.country}`
     );
     flagImg.value = countryRes.data[0].flags.png; // ✅ Đây là hình quốc kỳ
 
-    console.log(flagImg.value);
+    console.log(countryRes.data[0]);
     
   } catch (error) {
     console.error("Lỗi khi gọi API:", error);
