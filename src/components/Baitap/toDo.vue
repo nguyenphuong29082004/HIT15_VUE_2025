@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import Message from "./Message.vue";
 import Dashboard from "./Dashboard.vue";
 const selectedList = ref("all");
@@ -17,6 +17,7 @@ const getItemLocalStorage = () => {
   const data = localStorage.getItem("task_list");
   return data ? JSON.parse(data) : [];
 }
+
 
 
 
@@ -38,6 +39,7 @@ const add_list = () => {
   if (input_add.value.trim() === "") {
     triggerNotice("Thêm không thành công");
     show_add.value = false;
+
   } else {
     task_list.value.push({
       name: input_add.value,
@@ -47,12 +49,14 @@ const add_list = () => {
     input_add.value = "";
     show_add.value = false;
     triggerNotice("Thêm thành công");
+    setItemLocalStorage();
   }
 };
 
 const delete_task = (index) => {
   filter.value.splice(index, 1);
   triggerNotice("Xóa thành công");
+  setItemLocalStorage();
 };
 
 // lọc task
@@ -102,6 +106,10 @@ watch(
     set_height_unfinished.value = current;
   }
 );
+
+onMounted(()=> {
+  task_list.value = getItemLocalStorage();
+})
 
 // thong bao
 </script>
