@@ -7,14 +7,9 @@ import FetchData from "./components/FetchData.vue";
 
 <template>
   <div class="container-w">
-    <!-- <Search /> -->
-    <!-- <Content />
-    <WeatherInfo /> -->
-    <!-- <FetchData/> -->
     <Search/>
   </div>
 
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
 <style scoped>

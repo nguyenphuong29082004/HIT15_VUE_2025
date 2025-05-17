@@ -4,23 +4,23 @@ const props = defineProps({
   tem: String,
   condition: String,
   date: String,
-  flag: String,
-})
+  flagImg: String,
+});
 </script>
 <template>
   <div class="container">
-    <div class="flat">
-      <img :src="flag" alt="Hình ảnh quốc kỳ" />
+    <div class="flag">
+      <img :src="flagImg" alt="Quốc kỳ"/>
     </div>
     <div class="weather-info">
       <p class="country">{{ name }}</p>
       <h class="temp">
-        {{ tem}}
+        {{ tem }}
         <p class="degree">o</p>
       </h>
       <div class="condate">
-        <p class="condition">{{condition}}</p>
-        <p class="datetime">{{ date}}</p>
+        <p class="condition">{{ condition }}</p>
+        <p class="datetime">{{ date }}</p>
       </div>
     </div>
   </div>

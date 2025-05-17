@@ -1,20 +1,23 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  forecastTime: Array,
+  forecastTemp: Array
+})
+</script>
 <template>
   <div class="container-info">
-    <div class="wea-info">
-      <p class="datetime">{{ data.forecast[0].time }}</p>
-      <img class="weather-condition" :src="data.forecast[0].icon" />
-      <h1 class="temperature">{{ data.forecast[0].degree }}°C</h1>
-    </div>
-    <div class="wea-info">
-      <p class="datetime">{{ data.forecast[1].time }}</p>
-      <img class="weather-condition" :src="data.forecast[1].icon" />
-      <h1 class="temperature">{{ data.forecast[1].degree }}°C</h1>
-    </div>
-    <div class="wea-info">
-      <p class="datetime">{{ data.forecast[2].time }}</p>
-      <img class="weather-condition" :src="data.forecast[2].icon" />
-      <h1 class="temperature">{{ data.forecast[2].degree }}°C</h1>
+    <div
+      class="wea-info"
+      v-for="(time, index) in forecastTime"
+      :key="index"
+    >
+      <p class="datetime">{{ time }}</p>
+      <img
+        class="weather-condition"
+        :src="`https://cdn.weatherapi.com/weather/64x64/day/116.png`" 
+        alt="weather icon"
+      />
+      <h1 class="temperature">{{ forecastTemp[index] }}°C</h1>
     </div>
   </div>
 </template>
